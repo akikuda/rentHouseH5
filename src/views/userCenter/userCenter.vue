@@ -220,8 +220,8 @@ const confirmNickname = async () => {
 // 退出登陆
 const logoutHandle = () => {
   userStore.Logout();
-  // 清空路由浏览历史记录
-  router.replace("/");
+  // 重定向至登录页面
+  router.replace("/login");
 };
 
 onMounted(() => {

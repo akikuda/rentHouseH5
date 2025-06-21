@@ -22,7 +22,7 @@ function validateMessage(msg: any): AIMessage {
 
 /**
  * 获取用户固定会话ID
- * 每个用户只有一个固定的会话ID，不随刷新变化
+ * 默认的固定会话ID为user_${userId}_fixed
  */
 function getUserFixedChatId(): string {
   const userStore = useUserStore();
@@ -298,7 +298,7 @@ export const useAIMessageStore = defineStore({
           queryParams.append(key, params[key]);
         }
         
-        // 获取完整URL
+        // 获取完整URL 请求路径/app/ai/service?prompt=content&chatId=chatId&userId=userId
         const baseURL = import.meta.env.PROD ? import.meta.env.VITE_APP_BASE_URL : "";
         const fullUrl = `${baseURL}${url}?${queryParams.toString()}`;
         

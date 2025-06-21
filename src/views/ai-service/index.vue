@@ -153,7 +153,7 @@ const currentMessages = computed(() => {
 // 在页面顶部添加用户信息和会话隔离提示
 const userInfo = computed(() => {
   if (!userStore.userInfo?.id) return '未登录用户';
-  return `${userStore.userInfo.nickname || '用户'} (ID: ${userStore.userInfo.id})`;
+  return `${userStore.userInfo.nickname || '用户'}`;
 });
 
 /**
@@ -218,7 +218,7 @@ onMounted(async () => {
   aiMessageStore.init();
   
   try {
-    // 使用createNewChat获取固定会话ID并加载历史
+    // 使用createNewChat获取会话ID并加载历史
     const chatId = aiMessageStore.createNewChat();
     await aiMessageStore.loadChatHistory(chatId);
     
